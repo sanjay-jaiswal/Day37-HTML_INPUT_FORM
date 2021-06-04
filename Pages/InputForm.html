@@ -1,5 +1,5 @@
 <html data-lt-installed="true">
-    <head>
+  `  <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>Input Form</title>
@@ -66,6 +66,8 @@
                     textError.textContent="Name is incorrect";
                 }
             });
+
+            //Salary range button
             const salary=document.querySelector('#salary');
             const output =document.querySelector('.salary-output');
             output.textContent=salary.value;
@@ -73,6 +75,7 @@
                 output.textContent=salary.value;
             });
 
+            //Email validation
             const email = document.querySelector('#email');
                 const emailError = document.querySelector('.email-error');
                 email.addEventListener('input', function () {
@@ -81,9 +84,22 @@
                         emailError.textContent = "";
                     }
                     else {
-                        emailError.textContent = "Email is not Valid";
+                        emailError.textContent = "Entered Email Is Invalid.";
                     }
                 });
+
+                //Validating telephone number
+                const tel = document.querySelector('#tel');
+                    const telError = document.querySelector('.tel-error');
+                    tel.addEventListener('input', function () {
+                        let telRegex = RegExp('^[0-9]{2}[ ][0-9]{10}$');
+                        if (telRegex.test(tel.value)) {
+                            telError.textContent = "";
+                        }
+                        else {
+                            telError.textContent = "telephone number is not Valid";
+                        }
+                    });
         </script>
     </body>
 </html>
