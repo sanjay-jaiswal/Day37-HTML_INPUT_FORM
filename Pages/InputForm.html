@@ -101,16 +101,18 @@
                         }
                     });
 
+                    //UC 4 and 5 : validating all password rules.
                     const pwd = document.querySelector('#pwd');
                         const pwdError = document.querySelector('.pwd-error');
                         pwd.addEventListener('input', function () {
-                            let passRegex = RegExp('^.{8,}$');
-                            if (passRegex.test(password.value))
-                                passwordError.textContent = '';
-                            else {
-                                pwdError.textContent = "Password is Invalid.";
-                            }
-                        });
+                                let pwdRegex = RegExp('^(?=.*[0-9])(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?!.*[^0-9a-zA-Z].*[^0-9a-zA-Z]).{8,}$');
+                                if (pwdRegex.test(pwd.value)) {
+                                    pwdError.textContent = "";
+                                }
+                                else {
+                                    pwdError.textContent = "Password is Invalid.";
+                                }
+                            });
         </script>
     </body>
 </html>
