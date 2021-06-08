@@ -88,7 +88,7 @@
                     }
                 });
 
-                //Validating telephone number
+                //Validating mobile number
                 const tel = document.querySelector('#tel');
                     const telError = document.querySelector('.tel-error');
                     tel.addEventListener('input', function () {
@@ -97,9 +97,20 @@
                             telError.textContent = "";
                         }
                         else {
-                            telError.textContent = "telephone number is not Valid";
+                            telError.textContent = "Telephone number is Invalid.";
                         }
                     });
+
+                    const pwd = document.querySelector('#pwd');
+                        const pwdError = document.querySelector('.pwd-error');
+                        pwd.addEventListener('input', function () {
+                            let passRegex = RegExp('^.{8,}$');
+                            if (passRegex.test(password.value))
+                                passwordError.textContent = '';
+                            else {
+                                pwdError.textContent = "Password is Invalid.";
+                            }
+                        });
         </script>
     </body>
 </html>
